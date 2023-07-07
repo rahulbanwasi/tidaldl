@@ -76,7 +76,9 @@ def __setMetaData__(track: Track, album: Album, filepath, contributors, lyrics):
     if obj.totaldisc <= 1:
         obj.totaltrack = album.numberOfTracks
     coverpath = TIDAL_API.getCoverUrl(album.cover, "1280", "1280")
+    obj.comments = "yo"  # Add comments section with the specified comment
     obj.save(coverpath)
+
 
 async def downloadThumb(album, r_id):
     path = Config.DOWNLOAD_BASE_DIR + f"/thumb/{r_id}.jpg"
